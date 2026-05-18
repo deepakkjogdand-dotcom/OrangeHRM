@@ -1,4 +1,4 @@
-package com.orangerhrm.tests;//package ests;
+package com.orangehrm.tests;//package ests;
 
 import com.orangehrm.base.BaseTest;
 import com.orangehrm.keywords.KeywordEngine;

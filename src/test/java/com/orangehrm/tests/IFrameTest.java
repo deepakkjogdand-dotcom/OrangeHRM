@@ -1,4 +1,4 @@
-package com.orangerhrm.tests;
+package com.orangehrm.tests;
 
 import com.orangehrm.base.DriverFactory;
 import com.orangehrm.pages.IFramePage;

@@ -42,7 +42,7 @@ public class LoginTest extends BaseTest {
 }*/
 
 
-package com.orangerhrm.tests;
+package com.orangehrm.tests;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;

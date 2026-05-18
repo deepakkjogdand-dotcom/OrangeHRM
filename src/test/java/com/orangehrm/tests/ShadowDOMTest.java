@@ -1,4 +1,4 @@
-package com.orangerhrm.tests;
+package com.orangehrm.tests;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -6,8 +6,6 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.orangehrm.base.DriverFactory;
 import com.orangehrm.pages.ShadowDomPage;
 import com.orangehrm.utils.ConfigReader;
-import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

@@ -1,4 +1,4 @@
-package com.orangerhrm.tests;
+package com.orangehrm.tests;
 
 import com.orangehrm.base.BaseTest;
 import com.orangehrm.pages.DashboardPage;
