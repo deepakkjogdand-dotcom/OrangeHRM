@@ -11,7 +11,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/yourusername/yourrepo.git'
+                git 'https://github.com/deepakkjogdand-dotcom/OrangeHRM.git'
             }
         }
 
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run TestNG Tests') {
             steps {
-                bat 'mvn test'
+                bat 'mvn test -DsuiteXmlFile=testng.xml'
             }
         }
 
