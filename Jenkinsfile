@@ -9,27 +9,30 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Run Automation Tests') {
+
             steps {
-                git 'https://github.com/deepakkjogdand-dotcom/OrangeHRM.git'
+
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+
+                    bat 'mvn clean test -DsuiteXmlFile=testng.xml'
+
+                }
             }
         }
 
-        stage('Clean Project') {
-            steps {
-                bat 'mvn clean'
-            }
-        }
+        stage('Publish Extent Reports') {
 
-        stage('Run TestNG Tests') {
             steps {
-                bat 'mvn test -DsuiteXmlFile=testng.xml'
-            }
-        }
 
-        stage('Generate Reports') {
-            steps {
-                echo 'Extent Reports Generated Successfully'
+                publishHTML([
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'Reports',
+                    reportFiles: 'ExtentReport.html',
+                    reportName: 'Extent Report'
+                ])
             }
         }
     }
@@ -37,15 +40,10 @@ pipeline {
     post {
 
         always {
+
             archiveArtifacts artifacts: 'Screenshots/*.png', allowEmptyArchive: true
-        }
 
-        success {
-            echo 'BUILD SUCCESS'
-        }
-
-        failure {
-            echo 'BUILD FAILED'
+            echo 'Pipeline Execution Completed'
         }
     }
 }
