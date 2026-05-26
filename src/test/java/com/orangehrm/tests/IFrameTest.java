@@ -19,8 +19,8 @@ public class IFrameTest {
         driver.get("https://the-internet.herokuapp.com/iframe");
     }
 
-    @AfterMethod
-    public void tearDown() { DriverFactory.quitDriver(); }
+//    @AfterMethod.
+//    public void tearDown() { }
 
     @Test(description = "Switch into iframe, type, switch back")
     public void testIframeWriteAndRead() {

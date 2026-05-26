@@ -31,6 +31,21 @@ public class ParallelLoginTest extends BaseTest {
     @Test
     public void parallelTest3() { runLogin("Test-3"); }
 
+    @Test
+    public void parallelTest4() { runLogin("Test-4"); }
+
+    @Test
+    public void parallelTest5() { runLogin("Test-5"); }
+
+    @Test
+    public void parallelTest6() { runLogin("Test-6"); }
+
+    @Test
+    public void parallelTest7() { runLogin("Test-7"); }
+
+    @Test
+    public void parallelTest8() { runLogin("Test-8"); }
+
     private void runLogin(String tag) {
         System.out.println("[" + tag + "] running on thread: "
                 + Thread.currentThread().getName());

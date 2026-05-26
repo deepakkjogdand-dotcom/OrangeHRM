@@ -83,46 +83,30 @@ public class LoginTest extends BaseTest {
         extent.attachReporter(spark);
     }
 
-    @Test(description = "Valid login leads to dashboard")
+    @Test
     public void testValidLogin() {
 
-        test = extent.createTest(
-                "Valid Login Test");
-
-        test.info("Opening Login Page");
+        test = extent.createTest("Valid Login Test");
 
         LoginPage login = new LoginPage(driver);
 
-        Assert.assertTrue(
-                login.isPageLoaded(),
-                "Login page did not load");
-
-        test.pass("Login page loaded successfully");
-
-        test.info("Entering valid credentials");
+        Assert.assertTrue(login.isPageLoaded());
 
         DashboardPage dash = login.loginAs(
-                ConfigReader.get("username1"),
+                ConfigReader.get("username"),
                 ConfigReader.get("password"));
 
-        test.info("Verifying dashboard page");
-
-        Assert.assertTrue(
-                dash.isAt(),
-                "Dashboard URL not reached");
-
-        System.out.println(dash.getHeaderText());
+        Assert.assertTrue(dash.isAt());
 
         test.pass("Login successful");
     }
-
     @DataProvider(name = "invalidCreds")
     public Object[][] badCreds() {
 
         return new Object[][]{
                 {"WrongUser", "admin123", "Invalid credentials"},
                 {"Admin", "wrongPass", "Invalid credentials"},
-                {"", "", "Required"}
+                {"Admin", "admin123", "Required"}
         };
     }
 
@@ -152,7 +136,8 @@ public class LoginTest extends BaseTest {
     }
 
     @AfterMethod
-    public void tearDown(ITestResult result) {
+    public void tearDown(ITestResult result)
+    {
 
         if (result.getStatus()
                 == ITestResult.FAILURE) {

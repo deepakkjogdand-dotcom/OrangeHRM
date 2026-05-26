@@ -1,3 +1,5 @@
+
+
 package com.orangehrm.base;
 
 import com.orangehrm.utils.ConfigReader;
@@ -6,9 +8,9 @@ import org.testng.annotations.*;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+   protected WebDriver driver;
 
-    @Parameters({"browser"})
+  @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
     public void setUp(@Optional("") String browserParam) {
 
@@ -20,7 +22,7 @@ public class BaseTest {
         driver.get(ConfigReader.get("url"));
     }
 
-    @AfterMethod(alwaysRun = true)
+   @AfterMethod(alwaysRun = true)
     public void tearDown() {
         DriverFactory.quitDriver();
     }

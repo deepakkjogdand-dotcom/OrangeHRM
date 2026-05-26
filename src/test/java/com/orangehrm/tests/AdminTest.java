@@ -14,14 +14,14 @@ public class AdminTest extends BaseTest {
     @DataProvider(name = "adminFilters")
     public Object[][] filters() {
         return new Object[][] {
-            {"Admin",  "Enabled"},
-            {"ESS",    "Enabled"},
-            {"Admin",  "Disabled"}
+                {"Admin",  "Enabled"},
+                {"ESS",    "Enabled"},
+                {"Admin",  "Disabled"}
         };
     }
 
     @Test(dataProvider = "adminFilters",
-          description = "DROPDOWNS + DATA-DRIVEN - filter users by role and status")
+            description = "DROPDOWNS + DATA-DRIVEN - filter users by role and status")
     public void testFilterUsers(String role, String status) {
         DashboardPage dash = new LoginPage(driver)
                 .loginAs(ConfigReader.get("username"), ConfigReader.get("password"));

@@ -5,14 +5,14 @@ import com.orangehrm.interfaces.IPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+
 /**
  * IFRAME demonstration.
- *
+
  * OrangeHRM occasionally embeds iframes (e.g. Help docs, embedded reports).
  * For a stable demo, this page wraps any URL containing an iframe and
  * shows: switch INTO frame -> read text -> switch BACK to default.
- *
- * For learning, point the test at:  https://the-internet.herokuapp.com/iframe
+
  */
 public class IFramePage extends BasePage implements IPage {
 
@@ -45,5 +45,6 @@ public class IFramePage extends BasePage implements IPage {
     @Override public String getPageUrl()    { return driver.getCurrentUrl(); }
     @Override public boolean isAt()         { return isPageLoaded(); }
 }
+
 
 
